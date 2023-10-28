@@ -31,8 +31,15 @@ class StoreStarWarsCharactersCommandHandlerTest extends TestCase
      */
     public function itShouldStoreCharactersInDatabase(): void
     {
-        $this->characterDoctrineRepository->expects($this->exactly(30))->method('store');
-        $command = new StoreStarWarsCharactersCommand();
+        $this->characterDoctrineRepository->expects($this->once())->method('store');
+        $command = new StoreStarWarsCharactersCommand(
+            id: 1,
+            name: 'Luke Skywalker',
+            mass: 77,
+            height: 172,
+            gender: 'male',
+            picture: 'https://awesomepictureofluke.com'
+        );
         ($this->sut)($command);
     }
 }
