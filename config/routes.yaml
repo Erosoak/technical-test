@@ -1,1 +1,4 @@
+get-all-characters:
+  path: /characters
+  controller: App\Characters\Infrastructure\Controller\Page\GetListOfAllCharactersController::index
 
